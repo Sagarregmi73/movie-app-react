@@ -9,13 +9,14 @@ class Main extends React.Component{
         movieId:[]
 
     }
+
    componentDidMount=()=>{
       fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY }&query=new`)
       .then(res=>res.json())
       .then(result=>this.setState({movies:result.results}));
       
-      
    } 
+
    handleSearch=(text)=>{
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_API_KEY }&query=${text}`)
     .then(res=>res.json())
